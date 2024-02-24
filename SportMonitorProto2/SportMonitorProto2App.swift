@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+
+@available(iOS 17.0, *)
 @main
 struct SportMonitorProto2App: App {
+    
+    @StateObject var currentTraining = CurrentTraining()
+    @StateObject var goals = Goals()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            InitialView(vm: InitialViewViewModel())
+                .environmentObject(currentTraining)
+                .environmentObject(goals)
         }
     }
 }
