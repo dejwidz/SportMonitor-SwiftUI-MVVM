@@ -9,18 +9,25 @@ import Foundation
 import SwiftUI
 
 protocol GoalDetailsViewModelProtocol: ObservableObject {
-    func deleteGoal(goal: Goal)
+    var goal: Goal {get set}
+    func deleteGoal()
 }
 
 class GoalDetailsViewModel: GoalDetailsViewModelProtocol {
     
+    @Published var goal: Goal
+    var goals: Goals
     let goalManager: GoalManager
     
-    init(goalManager: GoalManager) {
+    init(goalManager: GoalManager, goal: Goal, goals: Goals) {
         self.goalManager = goalManager
+        self.goal = goal
+        self.goals = goals
     }
     
-    func deleteGoal(goal: Goal) {
+    func deleteGoal() {
         goalManager.deleteGoal(goalToDelete: goal)
+        goals.goals = goalManager.getAllGoals().goals
+        goals.setupIndexes()
     }
 }

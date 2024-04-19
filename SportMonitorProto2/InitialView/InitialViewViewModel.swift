@@ -30,6 +30,8 @@ final class InitialViewViewModel: InitialViewViewModelProtocol {
     @Published var fast = true
     @Published var goToMainView = false
     @Published var goOut: [Bool] = Array(repeating: false, count: 50)
+    
+
     private var counter = 0
     private var timer: Timer?
     
@@ -49,11 +51,6 @@ final class InitialViewViewModel: InitialViewViewModelProtocol {
                 }
             }
         }
-    }
-    
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
     }
     
     func conductAnimation() {
@@ -77,5 +74,10 @@ final class InitialViewViewModel: InitialViewViewModelProtocol {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             handler()
         }
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 }

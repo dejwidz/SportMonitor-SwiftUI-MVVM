@@ -13,42 +13,42 @@ struct GoalsView: View {
     @State private var clicked = false
     
     var body: some View {
-        
         ScrollView {
-            LazyVGrid(columns: [
-                GridItem(),
-                GridItem()
-            ]) {
-                GoalButtonView(text: "add new goal")
-                    .padding(.top, goals.goals.isEmpty ? 50 : -50)
-                
-                ForEach(goals.goals, id: \.id) { item in
-                    if item.index == 0  {
-                        SingleGoalView(goal: item, text: item.name)
-                            .padding(.top, 100)
-                            .onTapGesture {
-                                print("index: \(item.index)")
-                            }
-                    }
-                    
-                    if item.index % 2 == 0 && item.index != 0 {
-                        SingleGoalView(goal: item, text: item.name)
-                            .padding(.top, -10)
-                            .onTapGesture {
-                                print("index: \(item.index)")
-                            }
-                    }
-                    else if item.index != 0 {
-                        SingleGoalView(goal: item, text: item.name)
-                            .padding(.top, -130)
-                            .onTapGesture {
-                                print("index: \(item.index)")
-                            }
+            HStack {
+                Spacer()
+                VStack {
+                    Spacer()
+                    GoalButtonView()
+                        .padding(.leading, 15)
+                    ForEach(goals.goals, id: \.id) { item in
+                        if item.index % 2 == 0 {
+                            SingleGoalView(goal: item, text: item.name)
+                                .padding(10)
+                                .padding(.leading, 15)
+                                .onTapGesture {
+                                    print("index: \(item.index)")
+                                }
+                        }
+                        Spacer()
                     }
                 }
+                Spacer()
+                VStack {
+                    ForEach(goals.goals, id: \.id) { item in
+                        if item.index % 2 != 0 || item.index == 0 {
+                            SingleGoalView(goal: item, text: item.name)
+                                .padding(10)
+                                .padding(.trailing, 15)
+                                .onTapGesture {
+                                    print("index: \(item.index)")
+                                }
+                        }
+                    }
+                    Spacer()
+                }
+                Spacer()
             }
-            .padding()
-            .background(Color.blue)
+            .background(Color.blue.edgesIgnoringSafeArea(.all))
         }
         .onAppear() {
             goals.setupIndexes()

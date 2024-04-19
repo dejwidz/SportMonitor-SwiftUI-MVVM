@@ -10,7 +10,7 @@ import CoreLocation
 
 class CurrentTraining: ObservableObject {
     
-    @Published var discipline: Sports = .Alpinism
+    @Published var discipline: Sports = .alpinism
     @Published var weight: Int = 45
     @Published var totalDistance: CLLocationDistance = 0.0
 }

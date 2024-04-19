@@ -15,7 +15,7 @@ struct NewGoalView<ViewModel>: View where ViewModel: NewGoalViewModelProtocol {
     var body: some View {
         VStack{
             Spacer()
-            Text("Das ist neu goal view")
+            Text("Your new goal")
             Spacer()
             TextField("", text: $vm.newGoal.name)
             Spacer()

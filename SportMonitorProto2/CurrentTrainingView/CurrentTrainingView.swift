@@ -14,11 +14,11 @@ struct CurrentTrainingView<ViewModel>: View where ViewModel: CurrentTrainingView
     
     @EnvironmentObject private var currentTraining: CurrentTraining
     @ObservedObject private(set)var vm: ViewModel
-    @ObservedObject private var locationManager = LocationManager()
-    @State private var trainingOff = true
-    @State private var totalDistance: Double = 0.0
-    @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @State private var positions: [CLLocationCoordinate2D] = []
+//    @ObservedObject private var locationManager = LocationManager()
+//    @State private var trainingOff = true
+//    @State private var totalDistance: Double = 0.0
+//    @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
+//    @State private var positions: [CLLocationCoordinate2D] = []
     
     var body: some View {
         VStack{
@@ -38,15 +38,15 @@ struct CurrentTrainingView<ViewModel>: View where ViewModel: CurrentTrainingView
                 VStack {
                     Spacer()
                     Button(action: {
-                        guard trainingOff else {
+                        guard vm.trainingOff else {
                             vm.stopTimer()
-                            trainingOff.toggle()
+                            vm.trainingOff.toggle()
                             return
                         }
                         vm.startTimer()
-                        trainingOff.toggle()
+                        vm.trainingOff.toggle()
                     }) {
-                        if trainingOff {
+                        if vm.trainingOff {
                             Text("Start training")
                                 .font(.headline)
                                 .padding()
@@ -64,7 +64,7 @@ struct CurrentTrainingView<ViewModel>: View where ViewModel: CurrentTrainingView
                         }
                     }
                     Button(action: {
-                        trainingOff = true
+                        vm.trainingOff = true
                         vm.endTraining()
                     }) {
                         Text("End training   ")
@@ -97,7 +97,7 @@ struct CurrentTrainingView<ViewModel>: View where ViewModel: CurrentTrainingView
                     Spacer()
                 }
             }
-            Map(position: $position) {
+            Map(position: $vm.position) {
                 MapPolyline(coordinates: vm.positions)
                     .stroke(Color.blue, lineWidth: 15)
             }
@@ -105,10 +105,10 @@ struct CurrentTrainingView<ViewModel>: View where ViewModel: CurrentTrainingView
             .onAppear() {
                 CLLocationManager().requestWhenInUseAuthorization()
             }
-            .onReceive(locationManager.$location
+            .onReceive(vm.locationManager.$location
                        , perform: { newPosition in
                 let pos = CLLocationCoordinate2D(latitude: newPosition?.coordinate.latitude ?? 0, longitude: newPosition?.coordinate.longitude ?? 0)
-                guard !trainingOff else {return}
+                guard !vm.trainingOff else {return}
                 
                 vm.addCoordinates(newCoordinates: pos)
             })

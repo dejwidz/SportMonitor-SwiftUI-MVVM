@@ -12,11 +12,10 @@ struct InitialView<ViewModel>: View where ViewModel: InitialViewViewModelProtoco
     
     @ObservedObject private(set)var vm: ViewModel
     @State private var goToMainView = false
-    @State private var scaleFactor: CGFloat = 1
-    
-    typealias positionTuple = (x: Double, y: Double)
-    
+//    @State private var scaleFactor: CGFloat = 1
     private let size = UIScreen.main.bounds.size.width / 6
+    
+    typealias PositionTuple = (x: Double, y: Double)
     
     var body: some View {
         NavigationView {
@@ -74,7 +73,7 @@ struct InitialView<ViewModel>: View where ViewModel: InitialViewViewModelProtoco
         }
     }
     
-    func setupFirstOutOfScreenPositions() -> (positionTuple) {
+    func setupFirstOutOfScreenPositions() -> (PositionTuple) {
         let screenHeight = UIScreen.main.bounds.size.height
         let screenWidth = UIScreen.main.bounds.size.width
         var newPosition: (x: Double, y: Double) = (0, 0)
@@ -95,8 +94,8 @@ struct InitialView<ViewModel>: View where ViewModel: InitialViewViewModelProtoco
         return newPosition
     }
     
-    func setupSecondOutOfScreenPosition(col: Int, row: Int) -> (positionTuple) {
-        var newPosition: positionTuple = (x: 0, y: 0)
+    func setupSecondOutOfScreenPosition(col: Int, row: Int) -> (PositionTuple) {
+        var newPosition: PositionTuple = (x: 0, y: 0)
         
         let firstQuarter: Bool = ((col < 2 && row < 6) || (col == 2 && row < 6 && row % 2 == 0))
         let secondQuarter: Bool = ((col > 2 && row < 6) || (col == 2 && row < 6 && row % 2 != 0))
@@ -125,9 +124,3 @@ struct InitialView<ViewModel>: View where ViewModel: InitialViewViewModelProtoco
         return newPosition
     }
 }
-
-//#Preview {
-//
-//        InitialView(vm: InitialViewViewModel())
-//
-//}

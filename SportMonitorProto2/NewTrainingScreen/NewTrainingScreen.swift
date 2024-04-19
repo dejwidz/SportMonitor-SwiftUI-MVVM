@@ -10,8 +10,6 @@ import SwiftUI
 struct NewTrainingScreen: View {
     
     @EnvironmentObject var currentTraining: CurrentTraining
-    @State private var selectedSport: Sports = .Alpinism
-    @State private var weight: Double = 40
     
     private let sportSelections: [SportSelection] = SportSelection.sportSelections
     var body: some View {

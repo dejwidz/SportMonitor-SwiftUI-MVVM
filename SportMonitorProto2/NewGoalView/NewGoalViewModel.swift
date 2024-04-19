@@ -13,7 +13,7 @@ protocol NewGoalViewModelProtocol: ObservableObject {
     func saveNewGoal()
 }
 
-class NewGoalViewModel: NewGoalViewModelProtocol {
+final class NewGoalViewModel: NewGoalViewModelProtocol {
     
     @Published var newGoal: Goal
     var model: GoalManager

@@ -49,17 +49,17 @@ struct SingleGoalView: View {
             }
             .sheet(isPresented: $clicked, onDismiss: {
             }, content: {
-                GoalDetailsView(vm: GoalDetailsViewModel(goalManager: DataStorage.shared), goal: goal)
+                GoalDetailsView(vm: GoalDetailsViewModel(goalManager: DataStorage.shared, goal: goal, goals: goals))
             })
             .onDisappear {
                 goals.setupIndexes()
             }
     }
 }
-//
+
 //#Preview {
 //    if #available(iOS 17.0, *) {
-//        SingleGoalView(text: "new goal", goal: Goal())
+//        SingleGoalView(goal: Goal(), text: "new goal")
 //    } else {
 //        // Fallback on earlier versions
 //    }

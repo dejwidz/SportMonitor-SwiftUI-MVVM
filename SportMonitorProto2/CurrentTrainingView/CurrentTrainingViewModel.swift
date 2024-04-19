@@ -15,22 +15,35 @@ protocol CurrentTrainingViewModelProtocol: ObservableObject {
     var formattedKcalBurned: String { get }
     var formattedDistance: String { get }
     var positions: [CLLocationCoordinate2D] { get }
+    var trainingOff: Bool { get set }
+    var totalDistance: Double { get set }
+    var locationManager: LocationManager { get set }
+
     func setup(currentTraining: CurrentTraining)
     func endTraining()
     func stopTimer()
     func startTimer()
     func addCoordinates(newCoordinates: CLLocationCoordinate2D)
+    
+    @available(iOS 17.0, *)
+    var position: MapCameraPosition { get set }
 }
 
+@available(iOS 17.0, *)
 final class CurrentTrainingViewModel: CurrentTrainingViewModelProtocol {
+    
     @Published var formattedCurrentTime = "0.00"
     @Published var formattedKcalBurned = "0.00"
     @Published var formattedDistance = "0.00 m."
     @Published var positions: [CLLocationCoordinate2D] = []
+    @Published var locationManager = LocationManager()
+    @Published var trainingOff = true
+    @Published var totalDistance: Double = 0.0
+    @Published var position: MapCameraPosition = .userLocation(fallback: .automatic)
     private var currentTrainingTime = 0.00
     private var currentKcalBurned = 0.00
     private var currentDistance = 0.00
-    private var currentDiscipline: Sports = .Alpinism
+    private var currentDiscipline: Sports = .alpinism
     private var weight = 80.00
     private var timer: Timer?
     private var kcalPerSecond = 0.00
@@ -53,26 +66,6 @@ final class CurrentTrainingViewModel: CurrentTrainingViewModelProtocol {
             self.calculateBurnedKcal()
             self.counter += 1
         }
-    }
-    
-    private func formatCurrentTime() {
-        formattedCurrentTime = String(format: "%.2f", currentTrainingTime)
-    }
-    
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    private func formatBurnedKcal() {
-        formattedKcalBurned = String(format: "%.2f", currentKcalBurned)
-    }
-    
-    private func calculateBurnedKcal() {
-        kcalPerSecond = currentDiscipline.kcalPerHour / 3600
-        let kcalPerKilo = kcalPerSecond / 80
-        currentKcalBurned = kcalPerKilo * weight * currentTrainingTime
-        formatBurnedKcal()
     }
     
     func endTraining() {
@@ -108,17 +101,36 @@ final class CurrentTrainingViewModel: CurrentTrainingViewModelProtocol {
         return length
     }
     
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     func formatCurrentDistance() {
         currentDistance = calculatePolyLineLength(points: positions)
         formattedDistance = String(format: "%.2f", currentDistance) + " m."
     }
     
-    private  func updateGoals() {
-        DataStorage.shared.actualizeGoals(kcal: kcalPerSecond, distance: Int(lastSecondDistance), time: 1)
-    }
-    
     func calculateLastSecondDistance(currentDistance: Double, secondAgoDistance: Double) {
         lastSecondDistance = currentDistance - secondAgoDistance
         oneSecondAgoDistance = currentDistance
+    }
+    private func formatCurrentTime() {
+        formattedCurrentTime = String(format: "%.2f", currentTrainingTime)
+    }
+    
+    private func formatBurnedKcal() {
+        formattedKcalBurned = String(format: "%.2f", currentKcalBurned)
+    }
+    
+    private func calculateBurnedKcal() {
+        kcalPerSecond = currentDiscipline.kcalPerHour / 3600
+        let kcalPerKilo = kcalPerSecond / 80
+        currentKcalBurned = kcalPerKilo * weight * currentTrainingTime
+        formatBurnedKcal()
+    }
+    
+    private  func updateGoals() {
+        DataStorage.shared.actualizeGoals(kcal: kcalPerSecond, distance: Int(lastSecondDistance), time: 1)
     }
 }

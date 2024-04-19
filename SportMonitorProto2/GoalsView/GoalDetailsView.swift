@@ -9,9 +9,8 @@ import SwiftUI
 
 struct GoalDetailsView<ViewModel>: View where ViewModel: GoalDetailsViewModelProtocol {
     
-    @ObservedObject private(set)var vm: ViewModel
     @EnvironmentObject var goals: Goals
-    @State var goal: Goal
+    @ObservedObject private(set)var vm: ViewModel
     
     var body: some View {
         VStack {
@@ -19,46 +18,39 @@ struct GoalDetailsView<ViewModel>: View where ViewModel: GoalDetailsViewModelPro
                 .font(.largeTitle)
                 .padding()
                 .fontWeight(.heavy)
-            
-            Text("Name: \(goal.name)")
+            Text("Name: \(vm.goal.name)")
                 .font(.headline)
                 .fontWeight(.bold)
-            
-            Text("Type: \(goal.type.id)")
+            Text("Type: \(vm.goal.type.id)")
                 .fontWeight(.bold)
-            
-            switch goal.type {
+            switch vm.goal.type {
             case .distance:
-                Text("Goal: \(goal.distance) km")
+                Text("Goal: \(vm.goal.distance) km")
                     .font(.headline)
                     .fontWeight(.bold)
-                Text("Current: \(goal.currentDistance) km")
+                Text("Current: \(vm.goal.currentDistance) km")
             case .kcal:
-                Text("Goal: \(goal.kcal) kcal")
-                    .background(goal.achieved ? .green : .yellow)
-                Text("Current: \(goal.currentKcal) kcal")
+                Text("Goal: \(vm.goal.kcal) kcal")
+                    .background(vm.goal.achieved ? .green : .yellow)
+                Text("Current: \(vm.goal.currentKcal) kcal")
             case .time:
-                Text("Goal: \(goal.time) hours")
-                    .background(goal.achieved ? .green : .yellow)
-                Text("Current: \(goal.currentTime) hours")
+                Text("Goal: \(vm.goal.time) hours")
+                    .background(vm.goal.achieved ? .green : .yellow)
+                Text("Current: \(vm.goal.currentTime) hours")
             }
-            
             Spacer()
             Button {
-                vm.deleteGoal(goal: goal)
-                goals.goals = DataStorage.shared.getAllGoals().goals
-                goals.setupIndexes()
-                
+                vm.deleteGoal()
             } label: {
                 Text("Delete")
             }
             Spacer()
         }
-        .background(goal.achieved ? .green : .yellow)
+        .background(vm.goal.achieved ? .green : .yellow)
         .ignoresSafeArea()
     }
 }
 
 #Preview {
-    GoalDetailsView(vm: GoalDetailsViewModel(goalManager: DataStorage.shared), goal: Goal())
+    GoalDetailsView(vm: GoalDetailsViewModel(goalManager: DataStorage.shared, goal: Goal(), goals: Goals()))
 }

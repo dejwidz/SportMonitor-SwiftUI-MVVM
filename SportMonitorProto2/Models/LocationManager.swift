@@ -12,9 +12,9 @@ import CoreLocation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    private var locationManager = CLLocationManager()
     @EnvironmentObject var currentTraining: CurrentTraining
     @Published var location: CLLocation?
+    private var locationManager = CLLocationManager()
     
     override init() {
         super.init()

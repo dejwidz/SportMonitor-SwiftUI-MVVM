@@ -17,14 +17,21 @@
 		6D35517D2B795B900077F0B7 /* GoalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35517C2B795B900077F0B7 /* GoalDetailsView.swift */; };
 		6D3551812B795DA70077F0B7 /* SingleGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3551802B795DA70077F0B7 /* SingleGoalView.swift */; };
 		6D3551832B795E610077F0B7 /* GoalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3551822B795E610077F0B7 /* GoalButtonView.swift */; };
+		6D3551BB2BAF324F0077F0B7 /* GoalToStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3551BA2BAF324F0077F0B7 /* GoalToStore.swift */; };
+		6D3551BD2BAF32820077F0B7 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3551BC2BAF32820077F0B7 /* Goals.swift */; };
+		6D3551BF2BAF33CE0077F0B7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6D3551BE2BAF33CE0077F0B7 /* Realm */; };
+		6D3551C12BAF33CE0077F0B7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6D3551C02BAF33CE0077F0B7 /* RealmSwift */; };
+		6D3551C32BAF736B0077F0B7 /* GoalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3551C22BAF736B0077F0B7 /* GoalTypes.swift */; };
+		6D3551C52BAF73850077F0B7 /* SportSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3551C42BAF73850077F0B7 /* SportSelection.swift */; };
+		6D3551C72BB1E0F60077F0B7 /* NewTrainingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3551C62BB1E0F60077F0B7 /* NewTrainingScreenViewModel.swift */; };
 		6D8133E02B13B3D90013345B /* NewGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8133DF2B13B3D90013345B /* NewGoalView.swift */; };
 		6D8377F92AAE207E00123761 /* SportMonitorProto2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8377F82AAE207E00123761 /* SportMonitorProto2App.swift */; };
 		6D8377FB2AAE207E00123761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8377FA2AAE207E00123761 /* ContentView.swift */; };
 		6D8377FD2AAE207F00123761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8377FC2AAE207F00123761 /* Assets.xcassets */; };
 		6D8378002AAE207F00123761 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8377FF2AAE207F00123761 /* Preview Assets.xcassets */; };
-		6D8378072AAE21C500123761 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8378062AAE21C500123761 /* Enums.swift */; };
+		6D8378072AAE21C500123761 /* Sports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8378062AAE21C500123761 /* Sports.swift */; };
 		6D8378092AAE5E7100123761 /* CurrentTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8378082AAE5E7100123761 /* CurrentTraining.swift */; };
-		6D83780D2AAE601900123761 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D83780C2AAE601900123761 /* Goals.swift */; };
+		6D83780D2AAE601900123761 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D83780C2AAE601900123761 /* Goal.swift */; };
 		6D8378112AAE6CA300123761 /* NewTrainingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8378102AAE6CA300123761 /* NewTrainingScreen.swift */; };
 		6D8378132AB73BD200123761 /* CurrentTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8378122AB73BD200123761 /* CurrentTrainingView.swift */; };
 		6D8378152AB73DF800123761 /* CurrentTrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8378142AB73DF800123761 /* CurrentTrainingViewModel.swift */; };
@@ -41,15 +48,20 @@
 		6D35517C2B795B900077F0B7 /* GoalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsView.swift; sourceTree = "<group>"; };
 		6D3551802B795DA70077F0B7 /* SingleGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGoalView.swift; sourceTree = "<group>"; };
 		6D3551822B795E610077F0B7 /* GoalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalButtonView.swift; sourceTree = "<group>"; };
+		6D3551BA2BAF324F0077F0B7 /* GoalToStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalToStore.swift; sourceTree = "<group>"; };
+		6D3551BC2BAF32820077F0B7 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
+		6D3551C22BAF736B0077F0B7 /* GoalTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTypes.swift; sourceTree = "<group>"; };
+		6D3551C42BAF73850077F0B7 /* SportSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportSelection.swift; sourceTree = "<group>"; };
+		6D3551C62BB1E0F60077F0B7 /* NewTrainingScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrainingScreenViewModel.swift; sourceTree = "<group>"; };
 		6D8133DF2B13B3D90013345B /* NewGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalView.swift; sourceTree = "<group>"; };
 		6D8377F52AAE207E00123761 /* SportMonitor-SwiftUI-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SportMonitor-SwiftUI-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8377F82AAE207E00123761 /* SportMonitorProto2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportMonitorProto2App.swift; sourceTree = "<group>"; };
 		6D8377FA2AAE207E00123761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6D8377FC2AAE207F00123761 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D8377FF2AAE207F00123761 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6D8378062AAE21C500123761 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		6D8378062AAE21C500123761 /* Sports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sports.swift; sourceTree = "<group>"; };
 		6D8378082AAE5E7100123761 /* CurrentTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTraining.swift; sourceTree = "<group>"; };
-		6D83780C2AAE601900123761 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
+		6D83780C2AAE601900123761 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		6D8378102AAE6CA300123761 /* NewTrainingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrainingScreen.swift; sourceTree = "<group>"; };
 		6D8378122AB73BD200123761 /* CurrentTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingView.swift; sourceTree = "<group>"; };
 		6D8378142AB73DF800123761 /* CurrentTrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrainingViewModel.swift; sourceTree = "<group>"; };
@@ -62,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D3551C12BAF33CE0077F0B7 /* RealmSwift in Frameworks */,
+				6D3551BF2BAF33CE0077F0B7 /* Realm in Frameworks */,
 				6D22CAE52B4B4484008D3D7B /* RealmSwift in Frameworks */,
 				6D22CAE32B4B4484008D3D7B /* Realm in Frameworks */,
 			);
@@ -101,10 +115,14 @@
 			isa = PBXGroup;
 			children = (
 				6D8378162ACEC84B00123761 /* LocationManager.swift */,
-				6D8378062AAE21C500123761 /* Enums.swift */,
+				6D8378062AAE21C500123761 /* Sports.swift */,
+				6D3551C22BAF736B0077F0B7 /* GoalTypes.swift */,
 				6D22CAE82B4B5D77008D3D7B /* DataStorage.swift */,
 				6D8378082AAE5E7100123761 /* CurrentTraining.swift */,
-				6D83780C2AAE601900123761 /* Goals.swift */,
+				6D3551C42BAF73850077F0B7 /* SportSelection.swift */,
+				6D83780C2AAE601900123761 /* Goal.swift */,
+				6D3551BC2BAF32820077F0B7 /* Goals.swift */,
+				6D3551BA2BAF324F0077F0B7 /* GoalToStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				6D8378102AAE6CA300123761 /* NewTrainingScreen.swift */,
+				6D3551C62BB1E0F60077F0B7 /* NewTrainingScreenViewModel.swift */,
 			);
 			path = NewTrainingScreen;
 			sourceTree = "<group>";
@@ -197,6 +216,8 @@
 			packageProductDependencies = (
 				6D22CAE22B4B4484008D3D7B /* Realm */,
 				6D22CAE42B4B4484008D3D7B /* RealmSwift */,
+				6D3551BE2BAF33CE0077F0B7 /* Realm */,
+				6D3551C02BAF33CE0077F0B7 /* RealmSwift */,
 			);
 			productName = SportMonitorProto2;
 			productReference = 6D8377F52AAE207E00123761 /* SportMonitor-SwiftUI-MVVM.app */;
@@ -255,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D83780D2AAE601900123761 /* Goals.swift in Sources */,
+				6D83780D2AAE601900123761 /* Goal.swift in Sources */,
 				6D22CAF62B6582FC008D3D7B /* InitialView.swift in Sources */,
 				6D8378192B0105A900123761 /* GoalsView.swift in Sources */,
 				6D8377FB2AAE207E00123761 /* ContentView.swift in Sources */,
@@ -265,13 +286,18 @@
 				6D22CAF12B617CFB008D3D7B /* NewGoalViewModel.swift in Sources */,
 				6D3551812B795DA70077F0B7 /* SingleGoalView.swift in Sources */,
 				6D35517D2B795B900077F0B7 /* GoalDetailsView.swift in Sources */,
-				6D8378072AAE21C500123761 /* Enums.swift in Sources */,
+				6D8378072AAE21C500123761 /* Sports.swift in Sources */,
+				6D3551BB2BAF324F0077F0B7 /* GoalToStore.swift in Sources */,
 				6D22CAF82B6EA789008D3D7B /* InitialViewViewModel.swift in Sources */,
 				6D8378152AB73DF800123761 /* CurrentTrainingViewModel.swift in Sources */,
+				6D3551BD2BAF32820077F0B7 /* Goals.swift in Sources */,
 				6D3551832B795E610077F0B7 /* GoalButtonView.swift in Sources */,
+				6D3551C32BAF736B0077F0B7 /* GoalTypes.swift in Sources */,
 				6D8378132AB73BD200123761 /* CurrentTrainingView.swift in Sources */,
+				6D3551C72BB1E0F60077F0B7 /* NewTrainingScreenViewModel.swift in Sources */,
 				6D8377F92AAE207E00123761 /* SportMonitorProto2App.swift in Sources */,
 				6D22CAF32B654F54008D3D7B /* GoalDetailsViewModel.swift in Sources */,
+				6D3551C52BAF73850077F0B7 /* SportSelection.swift in Sources */,
 				6D8378172ACEC84B00123761 /* LocationManager.swift in Sources */,
 				6D8378092AAE5E7100123761 /* CurrentTraining.swift in Sources */,
 			);
@@ -497,6 +523,16 @@
 			productName = Realm;
 		};
 		6D22CAE42B4B4484008D3D7B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D22CAE12B4B4484008D3D7B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		6D3551BE2BAF33CE0077F0B7 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D22CAE12B4B4484008D3D7B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		6D3551C02BAF33CE0077F0B7 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6D22CAE12B4B4484008D3D7B /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
